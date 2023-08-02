@@ -80,8 +80,9 @@ else:
             print(f'Failure: {cmd}')
 
 # Print the final counts
-print(f'Total number of files to convert: {total_files_to_convert}')
+if args.dry_run:
+    print(f'\nTotal number of files to convert: {total_files_to_convert}')
 if not args.dry_run:
-    print(f'Number of files converted: {files_converted}')
+    print(f'\nNumber of files converted: {files_converted}')
     print(f'Number of files deleted: {files_deleted}')
     print(f'Difference between converted and deleted: {files_converted - files_deleted}')
