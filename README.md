@@ -98,3 +98,54 @@ The script will then process each show and season, copying the English .srt file
 
 Remember to back up your data before running this script. This script will modify your filesystem, and mistakes can lead to data loss.
 
+
+## Movie Subtitle Organizer Script
+
+### Description
+
+This Python script assists in organizing subtitle files for movies. It scans a directory containing movies, searches for English subtitle files (.srt) in a "Subs" folder under each movie's folder, and then copies the first found English subtitle file to the corresponding movie's folder. The copied subtitle file is renamed to match the movie's name with a '.en.srt' extension. This script will streamline your movie subtitle organization process.
+
+### Usage
+
+1. Ensure Python 3 is installed on your machine.
+
+2. Run the script from the command line as follows:
+   ```
+   python movie_subtitle_organizer.py
+   ```
+
+3. When prompted, input the full path to the directory containing your movies. The expected folder structure is as follows:
+
+   ```
+   Movies Folder
+   ├── Movie 1
+   │   └── Subs
+   │       ├── English.srt
+   │       ├── Spanish.srt
+   │       └── ...
+   ├── Movie 2
+   │   └── Subs
+   │       ├── English.srt
+   │       ├── Spanish.srt
+   │       └── ...
+   └── ...
+   ```
+
+### Important Notes
+
+- Each movie should have its own folder within the root Movies folder.
+- The script expects each movie folder to contain a "Subs" folder.
+- The "Subs" folder should contain your .srt subtitle files.
+- The script is designed to copy only English .srt files. If you have subtitles in different languages, you may need to modify the script to suit your needs.
+
+### Warning
+
+This script copies subtitle files, leaving the original files untouched. However, it's always a good practice to have a backup of your files before running any script that modifies files, due to the risk of data loss.
+
+### Troubleshooting
+
+If you encounter issues, please check the following:
+
+- Make sure your folder structure matches the structure described above.
+- Ensure your subtitle files end with the ".srt" extension and that English subtitle files include the word "English" in their name.
+- Check you have sufficient permissions to read and write in the specified directory.
