@@ -58,7 +58,7 @@ else:
         outputFileFullPath = os.path.join(dirpath, os.path.splitext(filename)[0] + ".mkv")
 
         # Create the command
-        cmd = f'"{mkvmergePath}" --output "{outputFileFullPath}" --video-tracks 0 --no-audio --no-subtitles --language "0:und" --track-name "0:" --default-track "0:yes" --forced-track "0:no" "{inputFileFullPath}" --track-order 0:0'
+        cmd = f'"{mkvmergePath}" --output "{outputFileFullPath}" --video-tracks 0 --no-subtitles --language "0:und" --track-name "0:" --default-track "0:yes" --forced-track "0:no" "{inputFileFullPath}" --track-order 0:0'
 
         # Execute the command and get the result
         result = subprocess.run(cmd, shell=True)
