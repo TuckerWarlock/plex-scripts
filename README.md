@@ -101,8 +101,6 @@ Remember to back up your data before running this script. This script will modif
 
 ## Movie Subtitle Organizer Script
 
-### Description
-
 This Python script assists in organizing subtitle files for movies. It scans a directory containing movies, searches for English subtitle files (.srt) in a "Subs" folder under each movie's folder, and then copies the first found English subtitle file to the corresponding movie's folder. The copied subtitle file is renamed to match the movie's name with a '.en.srt' extension. This script will streamline your movie subtitle organization process.
 
 ### Usage
