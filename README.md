@@ -149,3 +149,39 @@ If you encounter issues, please check the following:
 - Make sure your folder structure matches the structure described above.
 - Ensure your subtitle files end with the ".srt" extension and that English subtitle files include the word "English" in their name.
 - Check you have sufficient permissions to read and write in the specified directory.
+
+
+## Parts-to-SRT Folder Mapper
+
+## Description:
+This was the closest I could get to pulling the name of folder(s) that was seeding when the client lost connection to the source/destination folder(s). So far the only issues with this method are if the subtitle file isn't included in the directory or if it took longer to initialize the download, the created date for the `.parts` file won't match anything and won't come back with a folder name.
+
+This script maps `.parts` files to corresponding folders that contain `.srt` files with the same creation timestamp. The primary use-case is to identify which movie or series a `.parts` file corresponds to by locating its matching subtitle `.srt` file. 
+
+### Key Features:
+1. Gathers all `.parts` files and their creation timestamps from a given root directory.
+2. Searches for `.srt` files throughout the directory structure.
+3. Maps each `.parts` file to a folder containing an `.srt` file with a matching creation timestamp.
+4. If the `.srt` file resides in a folder named "Subs", the script will use the parent directory of "Subs" for mapping.
+5. Outputs the mapping results to a file named `results.txt`.
+
+### How to Use:
+1. Set the `root_folder` variable in the script to the desired root path of your movie/series directory.
+2. Execute the script.
+3. Review the generated `results.txt` file for the mapping results.
+
+### Output Format:
+The `results.txt` file will contain lines in the following format:
+
+```
+<parts_file_name> -> <folder_name>
+```
+
+Where:
+- `<parts_file_name>` is the name of the `.parts` file.
+- `<folder_name>` is the name of the folder containing a matching `.srt` file. If the `.srt` file is inside a "Subs" folder, the parent directory of "Subs" is used.
+
+### Notes:
+- Timestamp matching uses a threshold of 1 second, meaning `.srt` and `.parts` files with creation timestamps within 1 second of each other are considered a match.
+- The script recursively searches all sub-directories under the provided `root_folder`.
+- Ensure you have necessary read permissions on the `root_folder` and write permissions where the script resides (for the `results.txt` file).
